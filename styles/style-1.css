@@ -1,0 +1,168 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(45deg, #2C3E50, #34495E, #5D6D7E, #A9CCE3);
+  font-family: Arial, sans-serif; 
+  font-family: poppins;
+}
+main{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.h11{
+  padding-bottom: 10px;
+}
+.google{
+  font-size: 18px;
+}
+.form-div,form,.login{
+  width: 400px;
+  height: 580px;
+  border-radius: 10px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form-div1{
+  height: 430px;
+}
+
+.js-button{
+  width: 200px;
+}
+h1{
+  text-align: center;
+}
+p{
+  font-size: 15px;
+  color: rgb(110, 110, 110);
+  margin: 0;
+  margin-bottom: 5px;
+}
+input{
+  border: white;
+  width: 100%;
+  padding-left: 6px;
+}
+input:focus{
+  outline: none;
+  font-size: 14px;
+}
+.input-div{
+  width: 320px;
+  padding: 12px 10px;
+  display: flex;
+  box-shadow:1px 2px 6px 0px rgba(0, 0, 0, 0.15);
+  margin-bottom: 18px;
+}
+.input-div input::placeholder{
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  color: rgb(211, 211, 211);
+}
+button{
+  font-family: 'Poppins', sans-serif;
+}
+.forget-para{
+  text-align: right;
+  cursor: pointer;
+  text-decoration: none;
+  color:black;
+}
+.forget-para:hover{
+  text-decoration: underline;
+}
+button{
+  margin-top: 20px;
+  font-family: poppins;
+  width: 250px;
+  height: 45px;
+  cursor: pointer;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 22px;
+  letter-spacing: 0.2px;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(111,121,9,1) 0%, rgba(32,54,59,1) 0%);
+}
+.h6-heading{
+  padding-top: 10px;
+  color: rgb(83, 83, 83);
+}
+.h66{
+  padding-bottom: 10px;
+}
+.ho{
+  cursor: pointer;
+}
+.h66,.h66 a{
+  margin: 0;
+  padding-top: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  color: rgb(83, 83, 83);
+}
+.city-div{
+align-self: flex-start;
+margin-left: 30px;
+margin-bottom: 10px;
+}
+#email-id,#name-id,#city-id,#pass-id,#phone-id{
+  font-size: 10px;
+  color: rgb(233, 40, 40);
+  letter-spacing: 0.2px;
+  font-weight: 600;
+  display: none;
+  margin-top: -10px;
+}
+
+.city {
+  width: 200px;               
+  padding: 5px;               
+  font-size: 14px;            
+  border: 1px solid #ccc;    
+  border-radius: 3px;         
+  background-color: #fff;    
+  color: #333;               
+  appearance: none;           
+}
+
+.city:focus {
+  border-color: #007bff;      
+  outline: none;              
+}
+
+
+@media (min-width:320px) and (max-width:420px) {
+  .form-div,form,.login{
+    width: 290px;
+  }
+  button{
+    width: 160px;
+    height: 40px;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+  }
+  
+.input-div{
+  width: 245px;
+  padding: 12px 10px;
+}
+p{
+  font-size: 12px;
+}
+.input-div input::placeholder{
+  font-size: 13px;
+}
+.google{
+  width: 230px;
+}
+}

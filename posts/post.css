@@ -1,0 +1,384 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f7fa;
+}
+
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  transition: margin-left 0.3s;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 260px;
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  transform: translateX(-260px); /* Initially hidden */
+  transition: transform 0.3s ease;
+}
+
+.sidebar.open {
+  transform: translateX(0); /* Sidebar visible */
+}
+
+.sidebar h2 {
+  font-size: 24px;
+  margin-bottom: 30px;
+  color: #ecf0f1;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 20px;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.sidebar ul li a:hover {
+  color: #3498db;
+}
+
+/* Main Content Styles */
+.main-content {
+  flex-grow: 1;
+  padding: 40px;
+  margin-left: 0; /* Adjust for sidebar */
+  transition: margin-left 0.3s; /* For smooth transition */
+}
+
+.main-content.shifted {
+  margin-left: 260px; /* When sidebar is open */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.sidebar-toggle {
+  font-size: 30px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  left: 1px;
+  transition: color 0.3s;
+}
+
+.sidebar-toggle:hover {
+  color: #3498db;
+}
+
+.logout {
+  background-color: #e74c3c;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.logout:hover {
+  background-color: #c0392b;
+}
+
+/* Profile Styles */
+.profile-info {
+  background-color: #fff;
+  padding: 20px;
+  margin-left: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#h2hain {
+  margin-left: 20px;
+  color: #2c3e50;
+}
+
+/* Posts Section */
+.posts {
+  margin-top: 40px;
+  margin-left: 20px;
+  /* word-wrap: break-word; */
+}
+.post-inline{
+  word-wrap: break-word;
+  /* overflow-wrap: break-word; */
+}
+.post{
+  margin-bottom: 20px;
+}
+
+button{
+  font-family: 'Poppins', sans-serif;
+}
+.post-list .post {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.post .post-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: black;
+  text-transform: capitalize;
+}
+.post .post-title1 {
+  font-size: 12px;
+  margin-top: -15px;
+  margin-bottom: 10px;
+  color: #5f5f5f;
+  text-transform: capitalize;
+}
+.same{
+  text-transform: capitalize;
+}
+.post .post-details {
+  font-size: 16px;
+  margin-bottom: 10px;
+  
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .sidebar-toggle {
+    display: block;
+  }
+
+  .main-content.shifted {
+    margin-left: 0;
+  }
+
+  .sidebar ul li {
+    margin-bottom: 10px;
+  }
+
+  .header {
+    margin-left: 0;
+    justify-content: space-between;
+  }
+
+  .sidebar.open {
+    transform: translateX(0); /* Sidebar visible */
+  }
+
+  /* Adjusting posts layout for mobile */
+  .posts .post-list {
+    grid-template-columns: 1fr; /* Stack posts vertically */
+  }
+
+  /* Adjust profile section for small screens */
+  .profile-info {
+    margin-left: 0;
+    padding: 15px;
+  }
+}
+
+/* Top Actions (Search Bar and Button) */
+.top-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.search-bar {
+  width: 50%;
+  display: block;
+  justify-content: space-between;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.search-bar input:focus {
+  border: 1px solid #3498db;
+}
+
+.add-player-btn {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.add-player-btn:hover {
+  background-color: #2980b9;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .top-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+
+  .add-player-btn {
+    margin-top: 15px;
+    width: 100%;
+  }
+}
+/* Modal styles */
+#editModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Darker background */
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal content */
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px; /* Max width for large screens */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  position: relative;
+  animation: slideIn 0.3s ease-out;
+  height: 200px;
+}
+
+/* Close button (x) */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 25px;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close-btn:hover {
+  color: #e74c3c; /* Red color on hover */
+}
+
+/* Heading for modal */
+.modal-content h2 {
+  margin-top: 0;
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+}
+
+/* Form labels */
+label {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Input fields and textarea */
+input[type="text"], textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #333;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical; /* Allow textarea to be resized vertically */
+  min-height: 100px;
+}
+
+/* Submit button */
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #3498db; /* Blue color */
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #2980b9; /* Darker blue on hover */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .post-details p {
+    font-size: 14px;
+  }
+
+  .post {
+    margin: 10px 0;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

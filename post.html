@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&display=swap"
+    rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="shortcut icon" href="./images/dash-pic.avif" type="image/x-icon">
+  <link rel="stylesheet" href="./posts/post.css">
+</head>
+
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <h2>Dashboard</h2>
+      <ul>
+        <li><a href="./dashboard.html">Home</a></li>
+        <li><a href="./post.html">Posts</a></li>
+        <li><a href="./profile.html">Profile</a></li>
+      </ul>
+    </aside>
+
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="header">
+        <button class="sidebar-toggle" id="sidebarToggle">☰</button>
+        <h1>Welcome to Your Dashboard</h1>
+        <button class="logout" id="google-signout">Logout</button>
+      </header>
+
+      <section class="top-actions">
+        <!-- Search Bar -->
+        <div class="search-bar">
+          <input type="text" id="searchInput1" placeholder="Topic" />
+          <span id="error1" style="color: red; display: none; font-size: 12px;">Input must be at least 6 characters.</span>
+        </div>
+      
+        <!-- Add Player Button -->
+        <button class="add-player-btn" id="addPlayerBtn">Add Post</button>
+      </section>
+
+      <section class="profile">
+        <h2 id="h2hain">Your Profile</h2>
+        <div class="profile-info">
+          <p>Hello, <span id="userName">John Doe</span></p>
+        </div>
+      </section>
+
+      <!-- Posts Section -->
+      <section class="posts">
+        <h2>Posts</h2>
+        <div class="post-list" id="postList"></div>
+      </section>
+    </main>
+  </div>
+
+
+ <!-- Modal -->
+<div id="editModal" style="display: none;">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h2>Edit Post</h2>
+    <form id="updateForm">
+      <label for="editTopic">Topic:</label>
+      <input type="text" id="editTopic" name="postTopic" placeholder="Enter new topic">
+      <br>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+
+<!-- Post List -->
+<div id="allPostDiv"></div>
+
+  
+
+
+
+
+
+  <!-- Modal -->
+<!-- Modal -->
+<!-- <div id="playerModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" id="closeModal">&times;</span>
+    <div id="modalPlayerDetails">
+    Player details will be dynamically added here 
+    </div>
+  </div>
+</div>
+ -->
+
+
+  <script src="./js-files/post.js" type="module"></script>
+</body>
+
+</html>

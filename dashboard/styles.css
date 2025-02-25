@@ -1,0 +1,423 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f7fa;
+}
+
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  transition: margin-left 0.3s;
+}
+
+.post-iniline {
+  word-wrap: break-word;
+}
+
+.h2-dash {
+  margin-top: 40px;
+  margin-left: -10px;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 260px;
+  background-color: rgb(76, 230, 76);
+  color: white;
+  padding: 20px;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  transform: translateX(-260px);
+  /* Initially hidden */
+  transition: transform 0.3s ease;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+  /* Sidebar visible */
+}
+
+.sidebar h2 {
+  font-size: 24px;
+  margin-bottom: 30px;
+  color: #ecf0f1;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin-left: -5px;
+}
+
+.sidebar ul li {
+  margin-bottom: 20px;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.sidebar ul li a:hover {
+  color: #3498db;
+}
+
+/* Main Content Styles */
+.main-content {
+  flex-grow: 1;
+  padding: 2px;
+  margin-left: 0;
+  /* Adjust for sidebar */
+  transition: margin-left 0.3s;
+  /* For smooth transition */
+}
+
+.main-content.shifted {
+  margin-left: 260px;
+  /* When sidebar is open */
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.dashboard-ul {
+  display: flex;
+  list-style: none;
+  color: black;
+  text-decoration: none;
+}
+
+.dashboard-ul li a {
+  color: black;
+  text-decoration: none;
+  padding: 0px 10px;
+  font-size: 15px;
+}
+
+.sidebar-toggle {
+  font-size: 30px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  left: 1px;
+  transition: color 0.3s;
+}
+
+.sidebar-toggle:hover {
+  color: #3498db;
+}
+
+.logout,.logout1 {
+  background-color: #e74c3c;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.logout:hover,logout1:hover  {
+  background-color: #c0392b;
+}
+
+/* Profile Styles */
+.profile-info {
+  background-color: #fff;
+  padding: 20px;
+  margin-left: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#h2hain {
+  margin-left: 20px;
+  color: #2c3e50;
+}
+button{
+  font-family: 'Poppins', sans-serif;
+}
+.post{
+  margin-bottom: 20px;
+}
+.post .post-title1 {
+  font-size: 12px;
+  margin-top: -15px;
+  margin-bottom: 10px;
+  color: #5f5f5f;
+  text-transform: capitalize;
+}
+
+.modal1-post-text {
+  font-size: 10px;
+  margin-top: -15px;
+  margin-bottom: 10px;
+  color: #5f5f5f;
+  text-transform: capitalize;
+}
+/* Posts Section */
+.posts {
+  margin-top: 40px;
+  margin-left: 60px;
+  margin-right: 20px;
+  background-color: gainsboro;
+  padding: 20px;
+}
+
+
+.posts .post-list {
+  gap: 20px;
+}
+
+.post-list .post {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.post .post-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #2c3e50;
+  text-transform: capitalize;
+}
+
+.same {
+  text-transform: capitalize;
+}
+
+.post .post-details {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.data-pic1{
+  position: absolute;
+  left: 60px;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+  .data-pic1{
+    display: none;
+    position: absolute;
+    left: -100px;
+  }
+  .posts {
+    margin-top: 40px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: gainsboro;
+    padding: 20px;
+  }
+
+  .sidebar-toggle {
+    display: block;
+  }
+  .logout{
+    display: none;
+  }
+
+  .main-content.shifted {
+    margin-left: 0;
+  }
+
+  .sidebar ul li {
+    margin-bottom: 10px;
+  }
+
+  .header {
+    margin-left: 0;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+    /* Sidebar visible */
+  }
+
+  /* Adjusting posts layout for mobile */
+  .posts .post-list {
+    grid-template-columns: 1fr;
+    /* Stack posts vertically */
+  }
+
+  /* Adjust profile section for small screens */
+  .profile-info {
+    margin-left: 0;
+    padding: 15px;
+  }
+}
+
+/* Top Actions (Search Bar and Button) */
+.top-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.search-bar {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 50px;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.search-bar input:focus {
+  border: 1px solid #3498db;
+}
+
+.add-player-btn {
+  background-color: #3498db;
+  color: white;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 5px;
+  transition: background-color 0.3s;
+}
+
+.add-player-btn:hover {
+  background-color: #2980b9;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .top-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .dashboard-ul {
+    display: none;
+  }
+
+  .sidebar {
+    width: 120px;
+  }
+
+  .search-bar {
+    width: 100%;
+    margin-left: 35px;
+    margin-top: 6px;
+  }
+
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  /* bottom: 0; */
+  width: 100%;
+  /* Full width */
+  height: 100vh;
+  /* Full height */
+  background-color: rgba(0, 0, 0, 0.7);
+  /* To give some space at the top */
+  padding-top: 10px;
+  /* To give some space at the top */
+  overflow-y: auto;
+  /* Enable scrolling if needed */
+}
+
+/* Modal content */
+.modal-content {
+  background-color: #fff;
+  margin: 0 auto;
+  padding: 15px;
+  border-radius: 10px;
+  width: 50%;
+  /* 50% width of the viewport */
+  max-width: 600px;
+  /* Max width to prevent it from becoming too large */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow for depth */
+  border: 1px solid #ddd;
+  /* Light border */
+  position: relative;
+  animation: fadeIn 0.3s ease-out;
+  /* Fade-in animation */
+}
+
+/* Close button */
+.close-btn {
+  color: #aaa;
+  font-size: 30px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: #333;
+  text-decoration: none;
+}
+
+/* Modal Content */
+#modalPlayerDetails {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #333;
+}
+
+#modalPlayerDetails p {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+/* Modal Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .modal-content {
+    width: 80%;
+    /* Make modal wider on smaller screens */
+  }
+}

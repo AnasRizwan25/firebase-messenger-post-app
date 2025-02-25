@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&display=swap"
+    rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/style-1.css">
+  <link rel="shortcut icon" href="./images/pic-favicon.png" type="image/x-icon">
+  <title>WebPro Sign Up</title>
+</head>
+
+<body>
+
+  <main>
+    <div class="form-div">
+      <h1>Sign Up</h1>
+
+      <div>
+        <p>Email Address</p>
+        <div class="input-div">
+          <input id="emailValue" type="email" class="em" placeholder="Enter your email">
+        </div>
+        <span id="email-id">Invalid email</span>
+      </div>
+      <div>
+        <p>Username</p>
+        <div class="input-div">
+          <input id="nameValue" type="text" class="na" placeholder="Enter your username">
+        </div>
+        <span id="name-id">Atleast 8 character</span>
+      </div>
+      <div>
+        <p>Phone</p>
+        <div class="input-div">
+          <input id="phoneValue" type="text" class="ph" placeholder="Enter your gender">
+        </div>
+        <span id="phone-id">Atleast 11 number</span>
+      </div>
+      <!-- <div class="city-div">
+          <select id="cityValue" class="city">
+            <option value="karachi" selected>Karachi</option>
+            <option value="hyderabad">Hyderabad</option>
+            <option value="lahore">Lahore</option>
+            <option value="gujrat">Gujrat</option>
+            <option value="quetta">Quetta</option>
+            <option value="multan">Multan</option>
+            <option value="sialkot">Sialkot</option>
+            <option value="bahawalpur">Bahawalpur</option>
+            <option value="peshawar">Peshawar</option>
+            <option value="faisalabad">Faisalabad</option>
+            <option value="islamabad">Islamabad</option>
+          </select>
+
+        </div> -->
+      <div>
+        <p>Password</p>
+        <div class="input-div">
+          <input id="passValue" class="ps" type="password" placeholder="Enter strong password">
+          <img width="20" src="./images/visible-pic.png" class="ho">
+        </div>
+        <span id="pass-id">At least 10 digit</span>
+      </div>
+      <button class="js-button" id="form">Create Account</button>
+
+    </div>
+  </main>
+
+  <script src="./js-files/signup.js" type="module"></script>
+
+</body>
+
+</html>

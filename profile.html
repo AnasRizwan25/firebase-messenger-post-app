@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&display=swap"
+    rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <link rel="shortcut icon" href="./images/dash-pic.avif" type="image/x-icon">
+  <link rel="stylesheet" href="./styles/profile.css">
+</head>
+
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar open" id="sidebar">
+      <h2 class="dashboard-h2">Dashboard</h2>
+      <ul>
+        <li><a href="./dashboard.html">Home</a></li>
+        <li><a href="./post.html">Posts</a></li>
+        <li><a href="./profile.html">Profile</a></li>
+      </ul>
+    </aside>
+
+    <div class="profile-card profile-cards">
+      <div class="profile-image">
+        <img id="phoUrl" src="./images/default-pic.webp" alt="Profile Photo">
+      </div>
+      <div class="profile-details profile-detail">
+        <h2 class="name" id="nameValue"></h2>
+        <p class="email" id="emailValue"></p>
+        <p class="phone" id="phoneValue"></p>
+        <button class="update-profile" id="update-profile">Update Profile</button>
+        <button class="logout" id="google-signout">Logout</button>
+      </div>
+    </div>
+    
+
+    <!-- Update Profile Modal -->
+<div class="modal" id="updateModal">
+  <div class="modal-content">
+    <span class="close" id="modalClose">&times;</span>
+    <h2>Update Profile</h2>
+    
+      <div class="form-group">
+        <label for="updateName">Name</label>
+        <input type="text" id="updateName" name="name">
+      </div>
+      <div class="form-group">
+        <label for="updatePhone">Phone</label>
+        <input type="text" id="updatePhone" name="phone">
+      </div>
+  
+      <button type="submit" class="save-changes" id="updateProfileForm">Save Changes</button>
+  
+  </div>
+</div>
+
+    
+    
+    
+    
+
+
+    <button class="sidebar-toggle" id="sidebarToggle">☰</button>
+
+    
+      
+
+      
+      
+
+      
+
+
+  
+
+
+
+  <script src="./js-files/profile.js" type="module"></script>
+</body>
+
+</html>

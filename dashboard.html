@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&display=swap"
+    rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="shortcut icon" href="./images/dash-pic.avif" type="image/x-icon">
+  <link rel="stylesheet" href="./dashboard/styles.css">
+</head>
+
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <h2 class="h2-dash">Dashboard</h2>
+      <ul>
+        <li><a href="./dashboard.html">Dashboard</a></li>
+        <li><a href="./post.html">My Post</a></li>
+        <li><a href="./profile.html">Profile</a></li>
+        <button class="logout1" id="google-signout">Logout</button>
+      </ul>
+    </aside>
+
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="header">
+        <button class="sidebar-toggle" id="sidebarToggle">☰</button>
+        <img class="data-pic data-pic1" width="100px" height="50px" src="./images/datacamp-pic.png">
+        <div class="search-bar">
+          <input type="text" id="searchInput" placeholder="Search Players..." />
+          <button class="add-player-btn" id="addPlayerBtn"><img width="20px" src="./images/search-btn.png" alt="search-button"></button>
+        </div>
+
+        <ul class="dashboard-ul">
+            <li><a href="./dashboard.html">Dashboard</a></li>
+            <li><a href="./post.html">My Post</a></li>
+            <li><a href="./profile.html">Profile</a></li>
+            <li><a href="./friend.html">Friend</a></li>
+          </ul>
+          <button class="logout" id="google-signout1">Logout</button>
+      </header>
+
+    
+
+      
+
+      <!-- Posts Section -->
+      <section class="posts">
+        <h2>Posts</h2>
+        <div class="post-list" id="postList"></div>
+      </section>
+    </main>
+  </div>
+
+
+  <!-- Modal -->
+  <div id="playerModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModal">&times;</span>
+      <div id="modalPlayerDetails">
+        Player details will be dynamically added here
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="./js-files/dashboard.js" type="module"></script>
+</body>
+
+</html>
