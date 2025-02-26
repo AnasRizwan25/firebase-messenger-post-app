@@ -66,7 +66,7 @@ input:focus{
   letter-spacing: 0.2px;
   color: rgb(211, 211, 211);
 }
-button{
+button,input,input::placeholder{
   font-family: 'Poppins', sans-serif;
 }
 .forget-para{

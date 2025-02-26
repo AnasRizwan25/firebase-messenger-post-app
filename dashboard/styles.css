@@ -13,6 +13,8 @@ body {
 
 .post-iniline {
   word-wrap: break-word;
+  margin-bottom: 0px;
+  margin-top: -2px;
 }
 
 .h2-dash {
@@ -147,7 +149,7 @@ body {
   margin-left: 20px;
   color: #2c3e50;
 }
-button{
+button,input,input::placeholder{
   font-family: 'Poppins', sans-serif;
 }
 .post{
@@ -421,3 +423,32 @@ button{
     /* Make modal wider on smaller screens */
   }
 }
+
+.like-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  outline: none;
+  padding: 1px;
+  margin-left: -3px;
+}
+
+.heart-icon {
+  width: 24px;
+  height: 24px;
+  fill: #ccc; /* Default gray color */
+  transition: fill 0.3s ease;
+}
+
+.like-btn.liked .heart-icon {
+  fill: #e1306c; /* Red/pink color when liked */
+}
+
+.like-count {
+  margin-left: 8px;
+  font-size: 16px;
+  color: #333;
+}
+

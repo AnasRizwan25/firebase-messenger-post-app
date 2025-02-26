@@ -133,7 +133,7 @@ body {
   margin-bottom: 20px;
 }
 
-button{
+button,input,input::placeholder{
   font-family: 'Poppins', sans-serif;
 }
 .post-list .post {

@@ -1,4 +1,4 @@
-import { onSnapshot, auth, updateDoc, increment, deleteDoc, addDoc, signOut, onAuthStateChanged, query, getDoc, limit, where, collection, db, getDocs, doc } from "./logic.js";
+import { setDoc,onSnapshot, auth, updateDoc, increment, deleteDoc, addDoc, signOut, onAuthStateChanged, query, getDoc, limit, where, collection, db, getDocs, doc } from "./logic.js";
 
 // delPlay();
 
@@ -91,36 +91,68 @@ function timeSince(date) {
   interval = Math.floor(seconds / 60);
   if (interval >= 1) return interval + " minute" + (interval > 1 ? "s" : "") + " ago";
   return Math.floor(seconds) + " seconds ago";
-}
 
-let getAllPosts = async () => {
+}
+const getAllPosts = async () => {
   try {
     const postsSnapshot = await getDocs(collection(db, "posts"));
+    // Clear the container before appending new posts.
+    allPostDiv.innerHTML = "";
     postsSnapshot.forEach((post) => {
-      // Append post HTML including a span to display the like count.
-      allPostDiv.innerHTML += `<div class="post">
-  <div class="post-title">${post.data().displayName}</div>
-  <div class="post-title1">${post.data().postDate ? timeSince(post.data().postDate.toDate()) : "No timestamp"
-        }</div>
-  <div class="post-details">
-    <p class="post-iniline">${post.data().postTopic}</p>
-    <button class="like-btn" onclick="likePost('${post.id}')">Like</button>
-    <span class="like-count" id="likeCount-${post.id}">${post.data().likeCount || 0
-        }</span>
-  </div>
-</div>`;
+      const postData = post.data();
+      allPostDiv.innerHTML += `
+        <div class="post" id="post-${post.id}">
+          <div class="post-title">${postData.displayName}</div>
+          <div class="post-title1">${
+            postData.postDate
+              ? timeSince(postData.postDate.toDate())
+              : "No timestamp"
+          }</div>
+          <div class="post-details">
+            <p class="post-iniline">${postData.postTopic}</p>
+            <button class="like-btn" id="like-btn-${post.id}" onclick="likePost('${post.id}')">
+              <svg class="heart-icon" viewBox="0 0 24 24">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+                         2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 
+                         3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 
+                         6.86-8.55 11.54L12 21.35z"/>
+              </svg>
+              <span class="like-count" id="likeCount-${post.id}">${
+        postData.likeCount || 0
+      }</span>
+            </button>
+          </div>
+        </div>`;
 
-      // Attach a real-time listener to update the like count for this post.
+      // Check if the current user has already liked this post.
+      const likeStatusQuery = query(
+        collection(db, "likes"),
+        where("uid", "==", islogin),
+        where("postId", "==", post.id)
+      );
+      getDocs(likeStatusQuery).then((likeSnapshot) => {
+        if (!likeSnapshot.empty) {
+          const btn = document.getElementById(`like-btn-${post.id}`);
+          if (btn) {
+            btn.classList.add("liked");
+          }
+        }
+      });
+
+      // Set up a real-time listener to update the like count.
       const postRef = doc(db, "posts", post.id);
       onSnapshot(postRef, (snapshot) => {
         if (snapshot.exists()) {
           const data = snapshot.data();
-          document.getElementById(`likeCount-${post.id}`).innerText = data.likeCount || 0;
+          const likeCountElement = document.getElementById(`likeCount-${post.id}`);
+          if (likeCountElement) {
+            likeCountElement.innerText = data.likeCount || 0;
+          }
         }
       });
     });
   } catch (error) {
-    console.error(error);
+    console.error("Error fetching posts:", error);
   }
 };
 
@@ -136,6 +168,7 @@ window.likePost = async (postId) => {
 
     // Reference to the post document to update the like counter
     const postRef = doc(db, "posts", postId);
+    const btn = document.getElementById(`like-btn-${postId}`);
 
     if (querySnapshot.empty) {
       // If no like exists, add one
@@ -144,11 +177,13 @@ window.likePost = async (postId) => {
         postId: postId,
         createdAt: new Date()
       });
-      // Increment the like counter automically
+      // Increment the like counter atomically
       await updateDoc(postRef, {
         likeCount: increment(1)
       });
       console.log("Post liked");
+      // Add the "liked" class so the heart icon turns red
+      btn.classList.add("liked");
     } else {
       // If the like exists, remove it (toggle off)
       querySnapshot.forEach(async (likeDoc) => {
@@ -159,13 +194,17 @@ window.likePost = async (postId) => {
         likeCount: increment(-1)
       });
       console.log("Post unliked");
+      // Remove the "liked" class so the heart icon goes back to gray
+      btn.classList.remove("liked");
     }
   } catch (error) {
     console.error("Error toggling like:", error);
   }
 };
 
-getAllPosts()
+getAllPosts();
+
+getAllPosts();
 
 document.querySelector('#addPlayerBtn').addEventListener('click', () => {
   let inputValue = document.querySelector('#searchInput').value;
