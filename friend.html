@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard</title>
   <link rel="shortcut icon" href="./images/dash-pic.avif" type="image/x-icon">
-  <link rel="stylesheet" href="./styles/dashboard.css">
+  <link rel="stylesheet" href="./styles/friend.css">
 </head>
 
 <body>
@@ -36,7 +36,7 @@
         <button class="sidebar-toggle" id="sidebarToggle">☰</button>
         <img class="data-pic data-pic1" width="100px" height="50px" src="./images/datacamp-pic.png">
         <div class="search-bar">
-          <input type="text" id="searchInput" placeholder="Search Players..." />
+          <input type="text" id="searchInput" placeholder="Search Friends..." />
           <button class="add-player-btn" id="addPlayerBtn"><img width="20px" src="./images/search-btn.png" alt="search-button"></button>
         </div>
 
@@ -49,32 +49,39 @@
           <button class="logout" id="google-signout1">Logout</button>
       </header>
 
-    
-
-      
-
-      <!-- Posts Section -->
-      <section class="posts">
-        <h2>Posts</h2>
-        <div class="post-list" id="postList"></div>
-      </section>
-    </main>
-  </div>
-
-
-  <!-- Modal -->
-  <div id="playerModal" class="modal">
-    <div class="modal-content">
-      <span class="close-btn" id="closeModal">&times;</span>
-      <div id="modalPlayerDetails">
-        Player details will be dynamically added here
-      </div>
+    <!-- Friend Request Popups Container -->
+  <div id="friendRequestsContainer"></div>
+  
+  <!-- Conversation List (Left Panel) -->
+  <div id="conversationList"></div>
+  
+  <!-- Chat UI Container (Right Panel) -->
+  <div id="chatContainer">
+    <div class="chat-header">
+      <img id="chatFriendPhoto" src="" alt="Friend Photo">
+      <div class="name" id="chatFriendName">Chat</div>
+      <button class="close-btn" id="closeChatBtn">&times;</button>
+    </div>
+    <div class="chat-messages" id="chatMessages"></div>
+    <div class="chat-input">
+      <input type="text" id="messageInput" placeholder="Type your message...">
+      <button id="sendMessageBtn">Send</button>
     </div>
   </div>
 
 
+      
+      
 
-  <script src="./js-files/dashboard.js" type="module"></script>
+    
+
+      
+
+     
+
+
+
+  <script src="./js-files/friend.js" type="module"></script>
 </body>
 
 </html>

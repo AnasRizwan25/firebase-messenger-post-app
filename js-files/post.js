@@ -6,6 +6,7 @@ let allPostDiv = document.querySelector("#postList");
 const sidebar = document.getElementById('sidebar');
 const sidebarToggle = document.getElementById('sidebarToggle');
 const mainContent = document.querySelector('.main-content');
+;
 
 // Check login state
 let islogin = localStorage.getItem('login');
@@ -292,3 +293,7 @@ document.getElementById("addPlayerBtn").addEventListener("click", () => {
 
 // Load posts on page load
 getMyPosts();
+
+
+
+

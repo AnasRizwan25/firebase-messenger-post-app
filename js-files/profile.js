@@ -114,5 +114,6 @@ let nameFunc = async () => {
     document.getElementById('phoneValue').innerText = post.data().phoneNumber ? 'phone number: '+post.data().phoneNumber : "";
     document.getElementById('emailValue').innerText = post.data().email ? 'email: '+post.data().email : "";
   });
+  nameFunc()
 }
 nameFunc();

@@ -11,17 +11,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard</title>
   <link rel="shortcut icon" href="./images/dash-pic.avif" type="image/x-icon">
-  <link rel="stylesheet" href="./posts/post.css">
+  <link rel="stylesheet" href="./styles/post.css">
 </head>
 
 <body>
   <div class="dashboard-container">
     <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
-      <h2>Dashboard</h2>
+      <h2 class="dashboard-post">Dashboard</h2>
       <ul>
         <li><a href="./dashboard.html">Home</a></li>
         <li><a href="./post.html">Posts</a></li>
+        <li><a href="./friend.html">Friend</a></li>
         <li><a href="./profile.html">Profile</a></li>
       </ul>
     </aside>
@@ -32,8 +33,14 @@
     <main class="main-content">
       <header class="header">
         <button class="sidebar-toggle" id="sidebarToggle">☰</button>
-        <h1>Welcome to Your Dashboard</h1>
-        <button class="logout" id="google-signout">Logout</button>
+        <img class="data-pic data-pic1" width="100px" height="50px" src="./images/datacamp-pic.png">
+        <ul class="ul-post-header">
+          <li><a href="./dashboard.html">Home</a></li>
+          <li><a href="./post.html">Posts</a></li>
+          <li><a href="./friend.html">Friend</a></li>
+          <li><a href="./profile.html">Profile</a></li>
+          <button class="logout" id="google-signout">Logout</button>
+        </ul>
       </header>
 
       <section class="top-actions">

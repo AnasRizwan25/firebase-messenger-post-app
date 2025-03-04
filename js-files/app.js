@@ -22,19 +22,23 @@ document.querySelector('#log-btn').addEventListener(('click'), async () => {
   let passValue = document.querySelector('#passValue').value;
 
   await signInWithEmailAndPassword(auth, emailValue, passValue)
-    .then((userCredential) => {
-      // Signed in 
-      const user = userCredential.user;
-      console.log("sign in succesfully")
-      localStorage.setItem('login', user.uid)
-      window.location.replace("./dashboard.html");
-
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    console.log("sign in succesfully")
+    localStorage.setItem('login', user.uid)
+    window.location.replace("./dashboard.html");
+    document.querySelector('.js-alert-box-main').style.display = 'none';
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
       const errorMessage = error.message;
       console.log(errorCode, errorMessage)
+      document.getElementById("closeBtn").addEventListener("click", function () {
+        document.querySelector(".js-alert-box-main").style.display = "none";
+      });
+      document.querySelector('.js-alert-box-main').style.display = 'flex';
     });
 })
 
@@ -82,7 +86,7 @@ function visiblePass(e) {
   }
   element.setAttribute('type', 'password');
   flag = true;
-
+  
 }
 
 
@@ -90,11 +94,11 @@ function visiblePass(e) {
 
 document.querySelector("#google-signUp").addEventListener('click',() => {
   signInWithPopup(auth, provider)
-    .then(async(result) => {
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-      const user = result.user;
-      const docRef = await addDoc(collection(db, "users"), {
+  .then(async(result) => {
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    const user = result.user;
+    const docRef = await addDoc(collection(db, "users"), {
         email: user.email,
         uid: user.uid,
         photoURL: user.photoURL,
@@ -108,12 +112,12 @@ document.querySelector("#google-signUp").addEventListener('click',() => {
       const errorMessage = error.message;
       console.error(errorMessage);
     });
-});
-
-
-
-
-let checkUser = async () => {
+  });
+  
+  
+  
+  
+  let checkUser = async () => {
   try {
     await onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -146,3 +150,6 @@ document.querySelector(".ps1").addEventListener('input', (event) => {
 document.querySelector("#img1").addEventListener('click', (event) => {
   visiblePass(event);
 });
+
+
+
